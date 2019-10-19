@@ -200,9 +200,6 @@ ul {
   .game-container {
     margin-top: -15px;
   }
-  #game-over, #continue-game {
-    margin-top: -160px;
-  }
 }
 @media only screen and (max-width: 1280px) {
   .results {
