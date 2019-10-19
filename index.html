@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+  <title>Hangman</title>
+</head>
+<body>
+  <header>
+    <span id="score" class="results">5</span>
+    <img src="img/logo.png" alt="">
+    <span id="saved" class="results">0</span>
+  </header>
+  <div class="game-container">
+    <section id="abeceda-container"></section>
+    <section class="form-section">
+      <ul id="list"></ul>
+      <form action="">
+        <input type="text" id="gameInput" autocomplete="off" spellcheck="false">
+        <button class="btn" type="button" onclick="hangmanGame()">check</button> 
+      </form>
+    </section>
+  </div>
+
+  <div id="game-over-wraper"> 
+    <div id="game-over">
+      <span class="score">game over</span>
+      <span class= "score" id="game-over-score"></span>
+      <button class="btn btn-over" type="button" onclick="reload()">play again</button>
+    </div>
+  </div>
+
+  <div id="continue-wraper">
+    <div id="continue-game">
+      <span class="score">congrats!</span>
+      <span id="continue-score" class="score"></span>
+      <button class="btn btn-over" type="button" onclick="continueReset()">Continue</button>
+    </div>
+  </div>
+
+</body>
+
+  <script src="script.js"></script>
+
+</html>
