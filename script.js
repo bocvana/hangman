@@ -255,8 +255,10 @@
       }
 
       if ((randomWord.replace(/ /g, '').length - 3) <= pointCounter && randomWord.length > 7) {
+        inputLetter.value.toLowerCase();
         inputForm.classList.add('try-whole');
       } else if ((randomWord.replace(/ /g, '').length - 2) <= pointCounter) {
+        inputLetter.value.toLowerCase();
         inputForm.classList.add('try-whole');
       }
 
