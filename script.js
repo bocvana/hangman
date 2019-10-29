@@ -152,7 +152,7 @@
     function checkInput() {
       ifCharExist = false;
       inputLetter.value.toLowerCase();
-      if (randomWord.length === inputLetter.value.length && randomWord === inputLetter.value) {
+      if (randomWord.length === inputLetter.value.length && randomWord == inputLetter.value) {
 
         for (var x = 0; x < inputLetter.value.length; x++) {
           liElements[x].innerText = inputLetter.value[x];
