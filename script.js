@@ -151,7 +151,7 @@
     
     function checkInput() {
       ifCharExist = false;
-    
+      inputLetter.value.toLowerCase();
       if (randomWord.length === inputLetter.value.length && randomWord === inputLetter.value) {
 
         for (var x = 0; x < inputLetter.value.length; x++) {
@@ -255,10 +255,8 @@
       }
 
       if ((randomWord.replace(/ /g, '').length - 3) <= pointCounter && randomWord.length > 7) {
-        inputLetter.value.toLowerCase();
         inputForm.classList.add('try-whole');
       } else if ((randomWord.replace(/ /g, '').length - 2) <= pointCounter) {
-        inputLetter.value.toLowerCase();
         inputForm.classList.add('try-whole');
       }
 
