@@ -1,8 +1,8 @@
 html {
-  height: 100%;
+  height: 100% !important;
 }
 body {
-  height: 100%;
+  height: 100% !important;
   margin: 0;
   padding: 0;
   background: url("img/bkg.jpg") no-repeat;
@@ -10,23 +10,24 @@ body {
 }
 header {
   width: 100%;
-  height: 100px;
-  position: relative;
-  text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
 }
 header img {
   width: 300px;
   padding: 10px;
 }
 #score {
-  left: 31%;
-}
-#saved {
-  right: 14%;
+  position: relative;
+  left: 280px;
 }
 .results {
-  position: absolute;
-  top: 25px;
+  max-height: 85px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
   color: #fffd96;
   font-size: 1.6em;
   font-family: 'Shojumaru', cursive;
@@ -65,6 +66,7 @@ ul {
   font-family: 'Henny Penny', cursive;
   font-size: 1.5em;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .abeceda-letter {
   width: 40px;
@@ -80,13 +82,18 @@ ul {
   opacity: 0.4;
 }
 .game-container {
-  width: 50%;
-  margin: 0 auto;
+  width: 100%;
   padding-top: 40px;
   display: flex;
   flex-direction: column;
 }
+.form-section {
+  width: 50%;
+  margin: auto;
+}
 .game-container form {
+  height: 0;
+  overflow: hidden;
   margin: 50px auto 0;
   text-align: center;
 }
@@ -95,12 +102,15 @@ ul {
   outline: none;
   border: 2px solid #9e4200;
   background-color: #8c3e01;
+  color: #fefc79;
   border-radius: 3px;
-  color: #ffeeb8;
   font-weight: bold;
   font-size: 1.2em;
   font-family: 'Indie Flower', cursive;
   box-shadow: inset 0 0 7px 3px #210f01;
+}
+.game-container form input::placeholder {
+  color: rgba(250, 240, 137, 0.7);
 }
  .btn {
   margin-left: 3%;
@@ -140,18 +150,19 @@ ul {
 #game-over-wraper, #continue-wraper {
   display: none;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
   background-color: rgba(255, 238, 184, 0.8);
-  /* transition: all 2s ease; */
 }
 #game-over, #continue-game {
-  width: 600px;
-  height: 500px;
+  width: 500px;
+  height: 490px;
+  position: relative;
+  top: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -178,13 +189,59 @@ ul {
   margin: 60px 0 0 33px;
   font-size: 0.7em;
 }
-#game-over-wraper.popup {
+#game-over-wraper.popup, #continue-wraper.popup {
   display: flex;
 }
-#continue-wraper.popup {
-  display: flex;
+#input-form.try-whole {
+  height: auto;
+  overflow: visible;
+  animation-name: warning;
+  animation-duration: 1s;
+  animation-iteration-count: 2;
 }
-
+.write-word {
+  animation-name: warning;
+  animation-duration: 1s;
+}
+.left, .right, footer {
+  display: none;
+}
+aside.sidebar {
+  width: 160px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-size: 100%;
+  z-index: -1;
+}
+.left {
+  left: 0;
+  background: url("img/right-side.png");
+}
+.right {
+  right: 0;
+  background: url("img/left-side.png");
+}
+footer {
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  background: url("img/footer.png") no-repeat;
+  background-size: 100%;
+  z-index: -1;
+}
+@keyframes warning {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 @keyframes popupAnimation {
   from {transform: scale3d(0.8, 0.8, 1);}
   to {transform: scale3d(1, 1, 1);}
@@ -194,6 +251,12 @@ ul {
   header img {
     width: 260px;
   }
+  .results {
+    max-height: 100px;
+  }
+  #score {
+    left: 260px;
+  }
   .dash {
     width: 10px;
   }
@@ -202,48 +265,95 @@ ul {
   }
 }
 @media only screen and (max-width: 1280px) {
-  .results {
-    top: 25px;
-  }
-  .game-container {
-    margin-top: -35px;
+  #score {
+    left: 230px;
   }
   header img {
     width: 240px;
   }
+  .game-container {
+    margin-top: 15px;
+  }
 }
 @media only screen and (max-width: 1024px) {
-  #abeceda-container {
-    width: 310px;
-    margin-top: 10px;
-    font-size: 1em;
+  body {
+    background: wheat;
   }
-  .abeceda-letter {
-    width: 25px;
-    height: 25px;
-    margin: 3px;
+  .left, .right, footer {
+    display: block;
+  }
+  .results {
+    color: #ff9200;
+  }
+  #score {
+    left: 130px;
   }
   .dash {
     width: 5px;
-    font-size: 16px;
+    font-size: 18px;
   }
-  .game-container {
+  .game-container, .form-section {
     margin-top: 20px;
   }
   .game-container form input {
-    padding: 5px;
+    padding: 7px;
   }
-  header img {
-    width: 200px;
+  .btn {
+    padding: 7px 30px;
+  }
+}
+@media only screen and (max-width: 940px) {
+  #score {
+    left: 170px;
   }
   .results {
     font-size: 1.4em;
-    top: 24px;
   }
-  .btn {
-    padding: 5px 30px;
+}
+@media only screen and (max-width: 800px) {
+  #score {
+    left: 0;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .logo {
+    width: 160px;
+  }
+  #abeceda-container {
+    width: 346px;
+    font-size: 1em;
+  }
+  .form-section {
+    width: 100%;
+  }
+  .abeceda-letter {
+    padding: 6px;
+  }
+  .game-container {
+    padding-top: 0;
+    margin-top: 0;
+  }
+  .game-container form input {
+    margin-bottom: 10px;
+  }
+  .dash {
+    width: 0px;
+    height: 28px;
+    font-size: 14px
   }
   #game-over, #continue-game {
-    margin-top: -50px;
+    height: 400px;
+    font-size: 1.6em;
+  }
+  .score {
+    margin-top: 85px;
+  }
+}
+@media only screen and (max-width: 360px) {
+  #abeceda-container {
+    width: 306px;
+  }
+  .abeceda-letter {
+    padding: 5px;
   }
 }
