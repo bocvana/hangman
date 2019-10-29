@@ -151,10 +151,10 @@
     
     function checkInput() {
       ifCharExist = false;
-      inputLetter.value.toLowerCase();
-      if (randomWord.length === inputLetter.value.length && randomWord == inputLetter.value) {
-
+      if (randomWord.length === inputLetter.value.length && randomWord === inputLetter.value.toLowerCase()) {
+        
         for (var x = 0; x < inputLetter.value.length; x++) {
+          console.log('proba: ', )
           liElements[x].innerText = inputLetter.value[x];
         }
 
