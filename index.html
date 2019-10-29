@@ -8,30 +8,22 @@
   <link rel="stylesheet" href="fonts.css">
   <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
   <title>Hangman</title>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142434389-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-142434389-2');
-</script>
-
 </head>
 <body>
   <header>
     <span id="score" class="results">5</span>
-    <img src="img/logo.png" alt="">
+    <img src="img/logo.png" class="logo" alt="">
     <span id="saved" class="results">0</span>
   </header>
+  <aside class="left sidebar"></aside>
+  <aside class="right sidebar"></aside>
   <div class="game-container">
     <section id="abeceda-container"></section>
     <section class="form-section">
       <ul id="list"></ul>
-      <form action="">
-        <input type="text" id="gameInput" autocomplete="off" spellcheck="false">
-        <button class="btn" type="button" onclick="hangmanGame()">check</button> 
+      <form id="input-form" action="">
+        <input type="text" id="gameInput" autocomplete="off" spellcheck="false" placeholder="Type whole word">
+        <button class="btn" type="button" onclick="checkInput()">try</button> 
       </form>
     </section>
   </div>
@@ -51,7 +43,7 @@
       <button class="btn btn-over" type="button" onclick="continueReset()">Continue</button>
     </div>
   </div>
-
+  <footer></footer>
 </body>
 
   <script src="script.js"></script>
